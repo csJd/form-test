@@ -144,6 +144,7 @@
             this.btDel.TabIndex = 11;
             this.btDel.Text = "删除";
             this.btDel.UseVisualStyleBackColor = true;
+            this.btDel.Click += new System.EventHandler(this.btDel_Click);
             // 
             // FormStu
             // 
