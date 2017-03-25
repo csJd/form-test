@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormTest", "FormTest\FormTest.csproj", "{741659D0-B8ED-49D4-8292-32C59BACF402}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scut2016", "scut2016\scut2016.csproj", "{741659D0-B8ED-49D4-8292-32C59BACF402}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scut2013", "scut2013\scut2013.csproj", "{6F572F3E-D11E-4101-B7BF-380F6964FE5D}"
 EndProject

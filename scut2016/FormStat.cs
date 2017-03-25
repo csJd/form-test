@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FormTest
+namespace scut2016
 {
     public partial class FormStat : Form
     {

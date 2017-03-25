@@ -1,4 +1,4 @@
-﻿namespace FormTest
+﻿namespace scut2016
 {
     partial class FormStat
     {

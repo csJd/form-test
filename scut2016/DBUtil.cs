@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 
-namespace FormTest
+namespace scut2016
 {
     class DBUtil
     {
