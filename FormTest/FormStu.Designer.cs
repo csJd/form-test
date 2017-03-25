@@ -134,6 +134,7 @@
             this.btAdd.TabIndex = 10;
             this.btAdd.Text = "添加";
             this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // btDel
             // 

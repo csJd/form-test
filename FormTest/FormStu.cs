@@ -33,12 +33,20 @@ namespace FormTest
             string sdate = dtSdate.Text;
             string cno = cbCno.Text;
 
-            string sqlsno = "SELECT sno FROM students WHERE sno = '" + sno + "'";
-            if (DBUtil.exists(sqlsno))
+            string sql = "UPDATE students SET sno = '" + sno + "'" +
+                            " SET sname = '" + sname + "'" +
+                            " SET sdate = '" + sdate + "'" +
+                            " SET cno = '" + cno + "'" +
+                            " WHERE sno = '" + sno + "'";
+
+            if (DBUtil.update(sql))
             {
-                MessageBox.Show("学号已经存在!");
-                return;
-            } 
+                MessageBox.Show("更新成功！");
+            }
+            else
+            {
+                MessageBox.Show("更新失败！请重试");
+            }
         }
 
         private void lvShow_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,6 +59,23 @@ namespace FormTest
                 dtSdate.Text = si[2].Text;
                 cbCno.Text = si[3].Text;
             }
+        }
+
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+            string sno = tbSno.Text.Trim();
+            string sname = tbSname.Text.Trim();
+            string sdate = dtSdate.Text;
+            string cno = cbCno.Text;
+
+            string sql = "SELECT sno FROM students WHERE sno = '" + sno + "'";
+            if (DBUtil.exists(sql))
+            {
+                MessageBox.Show("学号已经存在!");
+                return;
+            } 
+
+            sql = "INSERT INTO students VALUES ("
         }
     }
 }
