@@ -7,22 +7,22 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 
-namespace scut2016
+namespace scut2015
 {
     class DBUtil
     {
-        private static readonly string connString = "Server=.\\sqlexpress; Database=r2016; Uid=sa; Pwd=9508";
+        private static readonly string connString = "Server=.\\sqlexpress; Database=r2015; Uid=sa; Pwd=9508";
         private static SqlConnection conn;
 
         public static void openConn()
         {
-           conn = new SqlConnection(connString);
-           conn.Open();
+            conn = new SqlConnection(connString);
+            conn.Open();
         }
 
         public static void closeConn()
         {
-            if(conn.State != ConnectionState.Closed)
+            if (conn.State != ConnectionState.Closed)
             {
                 conn.Close();
             }
@@ -76,7 +76,7 @@ namespace scut2016
                 for (int i = 1; i < dt.Columns.Count; ++i)
                 {
                     //if (dr[i].GetType() == typeof(DateTime))
-                    if(dr[i] is DateTime)
+                    if (dr[i] is DateTime)
                     {
                         lvi.SubItems.Add(((DateTime)dr[i]).ToString("yyyy-MM-dd"));
                     }
