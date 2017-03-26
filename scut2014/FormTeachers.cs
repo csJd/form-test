@@ -33,7 +33,7 @@ namespace scut2014
         {
             if (lvShow.SelectedItems.Count == 0) return;
             var row = lvShow.SelectedItems[0].SubItems;
-            tbTno.Text = row[0].Text;
+            preTno = tbTno.Text = row[0].Text;
             tbTname.Text = row[1].Text;
             cbTdept.Text = row[2].Text;
             cbRno.Text = row[3].Text;
@@ -49,7 +49,7 @@ namespace scut2014
         private void btAdd_Click(object sender, EventArgs e)
         {
             string tno = tbTno.Text;
-            string sql = "SELECT FROM teachers WHERE tno = '" + preTno + "'";
+            string sql = "SELECT tno FROM teachers WHERE tno = '" + tno + "'";
             if (DBUtil.exists(sql))
             {
                 MessageBox.Show("用户名已经存在!");
@@ -58,18 +58,18 @@ namespace scut2014
 
             string tname = tbTname.Text;
             string tdept = cbTdept.Text;
-            string rno = cbTdept.Text;
-            sql = string.Format("INSERT INTO teachers VALUES ('{0}', '{1}', '{2}', '{3}'",
+            string rno = cbRno.Text;
+            sql = string.Format("INSERT INTO teachers VALUES ('{0}', '{1}', '{2}', '{3}')",
                 tno, tname, tdept, rno);
 
             if (DBUtil.update(sql))
             {
-                MessageBox.Show("更新成功！");
+                MessageBox.Show("添加成功！");
                 reload();
             }
             else
             {
-                MessageBox.Show("更新失败！");
+                MessageBox.Show("添加失败！");
             }
         }
 
@@ -78,7 +78,7 @@ namespace scut2014
             string tno = tbTno.Text;
             string tname = tbTname.Text;
             string tdept = cbTdept.Text;
-            string rno = cbTdept.Text;
+            string rno = cbRno.Text;
 
             string sql = string.Format("UPDATE teachers SET tno = '{0}', tname = '{1}', tdept = '{2}', rno = '{3}' WHERE tno = '{4}'",
                 tno, tname, tdept, rno, preTno);
@@ -97,15 +97,20 @@ namespace scut2014
 
         private void btDel_Click(object sender, EventArgs e)
         {
-            string sql = "DELETE FORM teachers WHERE tno = '" + preTno + "'";
+            DialogResult r = MessageBox.Show("确定要删除吗？", "提示", MessageBoxButtons.YesNo);
+            if(r == DialogResult.No)
+            {
+                return;
+            }
+            string sql = "DELETE FROM teachers WHERE tno = '" + preTno + "'";
             if (DBUtil.update(sql))
             {
-                MessageBox.Show("更新成功！");
+                MessageBox.Show("删除成功！");
                 reload();
             }
             else
             {
-                MessageBox.Show("更新失败！");
+                MessageBox.Show("删除失败！");
             }
         }
     }
